@@ -327,51 +327,14 @@
                   class="w-full h-full arch-clip overflow-hidden border-8 border-white shadow-2xl bg-cream-200 relative"
                 >
                   <div
-                    id="hero-slider-track"
-                    class="flex h-full transition-transform duration-700 ease-in-out cursor-grab active:cursor-grabbing"
-                  ></div>
-
-                  <button
-                    type="button"
-                    onclick="prevHeroSlide(true)"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 text-sage-700 shadow-md hover:bg-white transition-all z-20"
-                    aria-label="Slide sebelumnya"
+                    class="w-full h-full flex items-center justify-center bg-white"
                   >
-                    <i class="fa-solid fa-chevron-left"></i>
-                  </button>
-                  <button
-                    type="button"
-                    onclick="nextHeroSlide(true)"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 text-sage-700 shadow-md hover:bg-white transition-all z-20"
-                    aria-label="Slide berikutnya"
-                  >
-                    <i class="fa-solid fa-chevron-right"></i>
-                  </button>
-                </div>
-
-                <div
-                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-cream-300 shadow-lg"
-                  id="hero-dots"
-                ></div>
-
-                <div
-                  class="absolute -bottom-2 -left-8 sm:-left-12 bg-white/95 backdrop-blur-md rounded-3xl p-5 shadow-xl border border-cream-300 flex items-center gap-4 z-10 max-w-[250px]"
-                >
-                  <div
-                    class="w-12 h-12 rounded-full bg-honey-100 flex items-center justify-center text-honey-400 shrink-0"
-                  >
-                    <i class="fa-solid fa-star text-xl"></i>
-                  </div>
-                  <div>
-                    <span
-                      class="text-xs font-black text-sage-600 tracking-wider uppercase block"
-                      >Rekomendasi</span
-                    >
-                    <span
-                      id="hero-slide-title"
-                      class="font-serif text-sm text-sage-800"
-                      >Kuah Kaldu Juara!</span
-                    >
+                    <img
+                      src="images/design-bakso.png"
+                      alt="Logo Bakso Tanggo Mas Yadi"
+                      class="w-full h-full object-contain pointer-events-none select-none"
+                      draggable="false"
+                    />
                   </div>
                 </div>
               </div>
@@ -1450,7 +1413,7 @@
         renderMenuGrid();
         updateCartUI();
         renderHistoryUI();
-        initHeroCarousel();
+        //initHeroCarousel();
         navigateToPage("beranda");
       };
 
