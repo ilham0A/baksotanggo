@@ -1078,7 +1078,7 @@
       class="fixed top-0 right-0 h-full w-full sm:max-w-md bg-cream-50 z-50 border-l border-cream-200 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300"
     >
       <div
-        class="p-6 border-b border-cream-200 flex items-center justify-between bg-white"
+        class="p-6 border-b border-cream-200 flex items-center justify-between bg-white shrink-0"
       >
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-bag-shopping text-sage-600 text-xl"></i>
@@ -1096,138 +1096,149 @@
           <i class="fa-solid fa-xmark text-xs"></i>
         </button>
       </div>
-      <div
-        id="cart-items-container"
-        class="flex-1 overflow-y-auto p-6 space-y-4"
-      ></div>
-      <div
-        id="empty-cart-state"
-        class="absolute inset-0 top-20 flex flex-col items-center justify-center p-6 text-center pointer-events-none"
-      >
+
+      <div class="flex-1 overflow-y-auto">
         <div
-          class="w-20 h-20 bg-cream-200 rounded-full flex items-center justify-center text-sage-500 text-3xl mb-4"
+          id="cart-items-container"
+          class="space-y-3 max-h-[50vh] overflow-y-auto px-6 py-4 pr-2"
+        ></div>
+
+        <div
+          id="empty-cart-state"
+          class="absolute inset-0 top-20 flex flex-col items-center justify-center p-6 text-center pointer-events-none"
         >
-          <i class="fa-solid fa-ghost"></i>
-        </div>
-        <h4 class="font-serif text-lg text-sage-800">
-          Keranjang Masih Kosong!
-        </h4>
-        <p class="text-xs text-sage-500 max-w-xs mt-1 font-medium">
-          Silakan jelajahi katalog kuliner lezat kami terlebih dahulu.
-        </p>
-        <button
-          onclick="
-            toggleCartDrawer();
-            navigateToPage('menu');
-          "
-          class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-sage-600 hover:bg-sage-700 text-white text-xs font-bold rounded-full pointer-events-auto transition-all"
-        >
-          Cari Menu
-        </button>
-      </div>
-      <div
-        id="cart-checkout-footer"
-        class="p-6 border-t border-cream-200 bg-white space-y-4 hidden"
-      >
-        <div class="space-y-2 border-b border-dashed border-cream-200 pb-3">
-          <div class="flex justify-between text-xs text-sage-600 font-bold">
-            <span>Subtotal Makanan &amp; Minuman</span>
-            <span id="cart-subtotal">Rp 0</span>
-          </div>
-          <div class="flex justify-between text-xs text-sage-600 font-bold">
-            <span>Biaya Layanan &amp; Kemasan</span>
-            <span
-              class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg text-[10px] font-black uppercase"
-              >Free</span
-            >
-          </div>
           <div
-            class="flex justify-between text-xs text-sage-800 font-black pt-2 border-t border-cream-100"
+            class="w-20 h-20 bg-cream-200 rounded-full flex items-center justify-center text-sage-500 text-3xl mb-4"
           >
-            <span>TOTAL KESELURUHAN</span>
-            <span id="cart-total" class="text-base text-honey-500 font-black"
-              >Rp 0</span
-            >
+            <i class="fa-solid fa-ghost"></i>
           </div>
+          <h4 class="font-serif text-lg text-sage-800">
+            Keranjang Masih Kosong!
+          </h4>
+          <p class="text-xs text-sage-500 max-w-xs mt-1 font-medium">
+            Silakan jelajahi katalog kuliner lezat kami terlebih dahulu.
+          </p>
+          <button
+            onclick="
+              toggleCartDrawer();
+              navigateToPage('menu');
+            "
+            class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-sage-600 hover:bg-sage-700 text-white text-xs font-bold rounded-full pointer-events-auto transition-all"
+          >
+            Cari Menu
+          </button>
         </div>
+
         <div
-          class="bg-cream-100 p-4 rounded-2xl border border-cream-200 space-y-3 shadow-sm"
+          id="cart-checkout-footer"
+          class="p-6 border-t border-cream-200 bg-white space-y-4 hidden"
         >
-          <span
-            class="block text-[10px] font-bold text-sage-600 uppercase tracking-wider border-b border-cream-200 pb-1.5"
-            >📝 DETAIL PENERIMA</span
-          >
-          <div>
-            <label
-              for="cust-name"
-              class="block text-[10px] font-bold text-sage-600 uppercase mb-1"
-              >Nama Pemesan <span class="text-rose-500">*</span></label
+          <div class="space-y-2 border-b border-dashed border-cream-200 pb-3">
+            <div class="flex justify-between text-xs text-sage-600 font-bold">
+              <span>Subtotal Makanan &amp; Minuman</span>
+              <span id="cart-subtotal">Rp 0</span>
+            </div>
+            <div class="flex justify-between text-xs text-sage-600 font-bold">
+              <span>Biaya Layanan &amp; Kemasan</span>
+              <span
+                class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg text-[10px] font-black uppercase"
+                >Free</span
+              >
+            </div>
+            <div
+              class="flex justify-between text-xs text-sage-800 font-black pt-2 border-t border-cream-100"
             >
-            <input
-              type="text"
-              id="cust-name"
-              placeholder="Masukkan nama lengkap gais"
-              class="w-full px-3 py-2 text-xs bg-white border border-cream-200 rounded-xl focus:outline-none focus:border-sage-600 font-semibold"
-            />
-          </div>
-          <div>
-            <label
-              class="block text-[10px] font-bold text-sage-600 uppercase mb-1"
-              >Metode Pemesanan <span class="text-rose-500">*</span></label
-            >
-            <div class="grid grid-cols-2 gap-2">
-              <label class="relative cursor-pointer">
-                <input
-                  type="radio"
-                  name="order_method"
-                  value="Makan Di Sini (Dine-in)"
-                  class="sr-only peer"
-                  checked
-                  onchange="toggleOrderDetail()"
-                />
-                <div
-                  class="border border-cream-200 rounded-xl p-2.5 text-center text-[10px] font-black uppercase text-sage-700 bg-white hover:bg-cream-200 peer-checked:bg-sage-600 peer-checked:text-white peer-checked:border-sage-600 transition-all duration-200"
-                >
-                  Makan Di Sini
-                </div>
-              </label>
-              <label class="relative cursor-pointer">
-                <input
-                  type="radio"
-                  name="order_method"
-                  value="Takeaway"
-                  class="sr-only peer"
-                  onchange="toggleOrderDetail()"
-                />
-                <div
-                  class="border border-cream-200 rounded-xl p-2.5 text-center text-[10px] font-black uppercase text-sage-700 bg-white hover:bg-cream-200 peer-checked:bg-sage-600 peer-checked:text-white peer-checked:border-sage-600 transition-all duration-200"
-                >
-                  Takeaway
-                </div>
-              </label>
+              <span>TOTAL KESELURUHAN</span>
+              <span id="cart-total" class="text-base text-honey-500 font-black"
+                >Rp 0</span
+              >
             </div>
           </div>
-          <div id="cust-table-container">
-            <label
-              for="cust-table"
-              class="block text-[10px] font-bold text-sage-600 uppercase mb-1"
-              >Nomor Meja <span class="text-rose-500">*</span></label
+
+          <div
+            class="bg-cream-100 p-4 rounded-2xl border border-cream-200 space-y-3 shadow-sm"
+          >
+            <span
+              class="block text-[10px] font-bold text-sage-600 uppercase tracking-wider border-b border-cream-200 pb-1.5"
+              >📝 DETAIL PENERIMA</span
             >
-            <input
-              type="text"
-              id="cust-table"
-              placeholder="Contoh: 05"
-              class="w-full px-3 py-2 text-xs bg-white border border-cream-200 rounded-xl focus:outline-none focus:border-sage-600 font-semibold"
-            />
+
+            <div>
+              <label
+                for="cust-name"
+                class="block text-[10px] font-bold text-sage-600 uppercase mb-1"
+                >Nama Pemesan <span class="text-rose-500">*</span></label
+              >
+              <input
+                type="text"
+                id="cust-name"
+                placeholder="Masukkan nama lengkap gais"
+                class="w-full px-3 py-2 text-xs bg-white border border-cream-200 rounded-xl focus:outline-none focus:border-sage-600 font-semibold"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-[10px] font-bold text-sage-600 uppercase mb-1"
+                >Metode Pemesanan <span class="text-rose-500">*</span></label
+              >
+              <div class="grid grid-cols-2 gap-2">
+                <label class="relative cursor-pointer">
+                  <input
+                    type="radio"
+                    name="order_method"
+                    value="Makan Di Sini (Dine-in)"
+                    class="sr-only peer"
+                    checked
+                    onchange="toggleOrderDetail()"
+                  />
+                  <div
+                    class="border border-cream-200 rounded-xl p-2.5 text-center text-[10px] font-black uppercase text-sage-700 bg-white hover:bg-cream-200 peer-checked:bg-sage-600 peer-checked:text-white peer-checked:border-sage-600 transition-all duration-200"
+                  >
+                    Makan Di Sini
+                  </div>
+                </label>
+
+                <label class="relative cursor-pointer">
+                  <input
+                    type="radio"
+                    name="order_method"
+                    value="Takeaway"
+                    class="sr-only peer"
+                    onchange="toggleOrderDetail()"
+                  />
+                  <div
+                    class="border border-cream-200 rounded-xl p-2.5 text-center text-[10px] font-black uppercase text-sage-700 bg-white hover:bg-cream-200 peer-checked:bg-sage-600 peer-checked:text-white peer-checked:border-sage-600 transition-all duration-200"
+                  >
+                    Takeaway
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div id="cust-table-container">
+              <label
+                for="cust-table"
+                class="block text-[10px] font-bold text-sage-600 uppercase mb-1"
+                >Nomor Meja <span class="text-rose-500">*</span></label
+              >
+              <input
+                type="text"
+                id="cust-table"
+                placeholder="Contoh: 05"
+                class="w-full px-3 py-2 text-xs bg-white border border-cream-200 rounded-xl focus:outline-none focus:border-sage-600 font-semibold"
+              />
+            </div>
           </div>
+
+          <button
+            onclick="processWhatsAppCheckout()"
+            class="w-full inline-flex justify-center items-center px-6 py-3.5 border border-sage-700 text-xs font-bold uppercase tracking-wider rounded-full text-white bg-sage-600 hover:bg-sage-700 transition-all gap-2"
+          >
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            Kirim Pesanan via WhatsApp
+          </button>
         </div>
-        <button
-          onclick="processWhatsAppCheckout()"
-          class="w-full inline-flex justify-center items-center px-6 py-3.5 border border-sage-700 text-xs font-bold uppercase tracking-wider rounded-full text-white bg-sage-600 hover:bg-sage-700 transition-all gap-2"
-        >
-          <i class="fa-brands fa-whatsapp text-lg"></i> Kirim Pesanan via
-          WhatsApp
-        </button>
       </div>
     </div>
 
